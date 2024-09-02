@@ -6,4 +6,4 @@ services:
       - 3000:3000
     volumes:
       - ..:/app
-    command: yarn dev
+    command: sh -c "yarn && yarn dev"
