@@ -6,4 +6,4 @@ services:
       - 3000:3000
     volumes:
       - ..:/app
-    command: sh -c "yarn && yarn dev"
+    command: sh -c "wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" sh - && source $HOME/.shrc && pnpm install && pnpm dev"
