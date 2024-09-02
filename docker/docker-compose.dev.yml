@@ -9,5 +9,5 @@ services:
     volumes:
       - ..:/app
     command: sh -c "
-      \ && npm install 
+      \ npm install
       \ && npm run dev"
