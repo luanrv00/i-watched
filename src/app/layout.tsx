@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inder } from "next/font/google";
 import "./globals.css";
 
-const inder = Inder({ subsets: ["latin"] });
+const inder = Inder({ subsets: ["latin"], weight: '400'});
 
 export const metadata: Metadata = {
   title: "Create Next App",
