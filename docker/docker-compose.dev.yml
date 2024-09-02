@@ -1,0 +1,9 @@
+services:
+  app:
+    image: node:lts-alpine3.18
+    working_dir: /app
+    ports:
+      - 3000:3000
+    volumes:
+      - ..:/app
+    command: yarn dev
