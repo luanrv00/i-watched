@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+docker compose -f docker/docker-compose.dev.yml --project-directory ivewatched up -d
+docker exec ivewatched-app npm run storybook
