@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 bin/dev
-docker exec ivewatched-app sh -c "yarn && yarn lint"
+docker exec ivewatched-app yarn install
+docker exec ivewatched-app yarn lint
