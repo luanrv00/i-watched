@@ -12,8 +12,13 @@
 bin/dev
 ```
 
+#### Running code linter
+
+````sh
+bin/lint
+
 #### Running e2e tests
 
 ```sh
 bin/test_e2e
-```
+````
