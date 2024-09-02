@@ -1,0 +1,8 @@
+services:
+  e2e:
+    image: mcr.microsoft.com/playwright:v1.46.0-jammy
+    container_name: ivewatched-e2e
+    working_dir: /app
+    volumes:
+      - ..:/app
+    command: yarn test:e2e

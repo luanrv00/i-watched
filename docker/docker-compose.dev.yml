@@ -8,6 +8,4 @@ services:
       - 6006:6006
     volumes:
       - ..:/app
-    command: sh -c "
-      \ npm install
-      \ && npm run dev"
+    command: sh -c "yarn install && yarn dev"
