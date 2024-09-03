@@ -1,8 +1,7 @@
 services:
   e2e:
-    image: mcr.microsoft.com/playwright:v1.46.0-jammy
+    image: ivewatched-e2e
     container_name: ivewatched-e2e
-    working_dir: /app
     volumes:
       - ..:/app
-    command: sh -c "yarn install && yarn test:e2e"
+    command: pnpm test:e2e
