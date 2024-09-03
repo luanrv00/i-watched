@@ -8,4 +8,4 @@ services:
     volumes:
       - ..:/app
       - /app/node_modules
-    command: pnpm dev
+    command: yarn dev

@@ -5,4 +5,4 @@ services:
     volumes:
       - ..:/app
       - /app/node_modules
-    command: pnpm test:e2e
+    command: yarn test:e2e
