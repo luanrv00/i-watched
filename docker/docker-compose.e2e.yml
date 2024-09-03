@@ -4,4 +4,5 @@ services:
     container_name: ivewatched-e2e
     volumes:
       - ..:/app
+      - /app/node_modules
     command: pnpm test:e2e

@@ -1,5 +1,3 @@
 #!/usr/bin/env sh
 bin/dev
-#docker exec ivewatched-app pnpm lint
-docker exec ivewatched-app pnpm install
-docker exec ivewatched-app ls -Al
+docker exec ivewatched-app pnpm lint
