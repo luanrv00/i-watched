@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+docker rm -fv ivewatched-app
+docker rmi -f ivewatched-app
