@@ -6,7 +6,7 @@ const inder = Inder({ subsets: ["latin"], weight: '400'});
 
 export const metadata: Metadata = {
   title: "I've Watched App",
-  description: "Track your Animes, TV Series or Movies progress!",
+  description: "Track your Animes, TV Series and Movies progress!",
 };
 
 export default function RootLayout({
