@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 bin/dev
-if [ -z "$(docker images -q ivewatched-e2e >2 /dev/null)" ];then
+if [ -z "$(docker images -q ivewatched-e2e 2> /dev/null)" ];then
   docker build -t ivewatched-e2e -f docker/Dockerfile.e2e .
 fi
 docker compose -f docker/docker-compose.e2e.yml --project-directory ivewatched up --abort-on-container-exit
