@@ -1,4 +1,6 @@
-import {Container, Section, SearchForm} from './ui'
+'use client'
+import {Suspense} from 'react'
+import {Container, Section, SearchForm, SearchMatches} from './ui'
 
 export default function Home() {
   return (
@@ -14,6 +16,9 @@ export default function Home() {
       <Section>
         <main>
           <SearchForm />
+          <Suspense>
+            <SearchMatches />
+          </Suspense>
         </main>
       </Section>
     </Container>
