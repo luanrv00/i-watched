@@ -1,16 +1,19 @@
 ### when searching
 - https://api.themoviedb.org/3/search/multi
 
+#### clicking on "add" button adds the item to added list
+- POST api/watched_items
+
 ### added movies
-- internal.api/added_movies
+- GET api/watched_items
 - https://api.themoviedb.org/3/movie/{movie_id}
 
 ### added animes
-- internal.api/added_animes
+- GET api/watched_items
 - https://api.themoviedb.org/3/tv/{series_id}
 
 ### added tv series
-- internal.api/added_tv_series
+- GET api/watched_items
 - https://api.themoviedb.org/3/tv/{series_id}
 
 ## added anime page
@@ -18,15 +21,11 @@
 
 ### episodes list
 - https://api.themoviedb.org/3/tv/{series_id}/season/{season_number}
-
-#### when episode was watched / was not watched
-- internal.api/watched_anime_episodes
+- GET api/watched_episodes
 
 ## added tv series page
 - https://api.themoviedb.org/3/tv/{series_id}
 
 ### episodes list
 - https://api.themoviedb.org/3/tv/{series_id}/season/{season_number}
-
-#### when episode was watched / was not watched
-- internal.api/watched_tv_series_episodes
+- GET api/watched_episodes
