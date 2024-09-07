@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
   const data: WatchItemType = res.map((matchItem: TMDBResponseItemType) => ({
     tmdb_id: matchItem.id,
     poster_path: matchItem.poster_path,
-    release_date: matchItem.release_date,
+    release_year: matchItem.release_date.split('-')[0],
     title: matchItem?.title || matchItem?.name,
     media_type: matchItem.media_type,
   }))
