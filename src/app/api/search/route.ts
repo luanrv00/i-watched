@@ -6,13 +6,13 @@ const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
-  const searchQuery = searchParams.get('searchQuery')
+  const searchTerm = searchParams.get('searchTerm')
 
-  if (!searchQuery) {
+  if (!searchTerm) {
     return
   }
 
-  const apiEndpoint = `${TMDB_API_URL}/search/multi?query=${searchQuery}`
+  const apiEndpoint = `${TMDB_API_URL}/search/multi?query=${searchTerm}`
   const apiToken = `Bearer ${TMDB_API_READ_ACCESS_TOKEN}`
 
   const res = await fetch(apiEndpoint, {

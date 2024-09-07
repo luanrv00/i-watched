@@ -1,7 +1,6 @@
 'use client'
-import {Suspense} from 'react'
 import {Container, Section} from '../ui'
-import {SearchForm, SearchMatches} from './ui'
+import {SearchContainer} from './ui'
 
 export default function Home() {
   return (
@@ -16,10 +15,7 @@ export default function Home() {
       </Section>
       <Section>
         <main>
-          <SearchForm />
-          <Suspense>
-            <SearchMatches />
-          </Suspense>
+          <SearchContainer />
         </main>
       </Section>
     </Container>
