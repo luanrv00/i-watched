@@ -1,15 +1,13 @@
 import {TMDB_API_URL} from '@/app/constants'
-import type {TMDBResponseItemType} from '@/app/types/types'
+import type {TMDBItemType} from '@/app/types/types'
 
 const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
 
-export async function searchMulti(
-  searchTerm: string,
-): Promise<TMDBResponseItemType[]> {
+export async function searchMulti(searchTerm: string): Promise<TMDBItemType[]> {
   const apiEndpoint = `${TMDB_API_URL}/search/multi?query=${searchTerm}`
   const apiToken = `Bearer ${TMDB_API_READ_ACCESS_TOKEN}`
 
-  const res = await fetch(apiEndpoint, {
+  const searchMatches = await fetch(apiEndpoint, {
     headers: {
       authorization: apiToken,
     },
@@ -17,11 +15,19 @@ export async function searchMulti(
     .then(res => res.json())
     .then(res =>
       res.results.filter(
-        (matchItem: TMDBResponseItemType) =>
-          matchItem['media_type'] !== 'person',
+        (matchItem: TMDBItemType) => matchItem['media_type'] !== 'person',
       ),
     )
     .catch(err => console.log('---------------- err', err))
 
-  return res
+  const data = searchMatches.map((matchItem: TMDBItemType) => ({
+    id: matchItem.id,
+    poster_path: matchItem.poster_path,
+    release_date: matchItem.release_date,
+    title: matchItem.title,
+    name: matchItem.name,
+    media_type: matchItem.media_type,
+  }))
+
+  return data
 }

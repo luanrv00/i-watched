@@ -1,4 +1,5 @@
 import type {StoryObj, Meta} from '@storybook/react'
+import {TMDB_POSTERS_URL} from '@/app/constants'
 import {SearchMatches} from '.'
 
 const meta: Meta<typeof SearchMatches> = {
@@ -10,11 +11,13 @@ export const Primary: StoryObj<typeof SearchMatches> = {
   args: {
     matchesList: [
       {
-        tmdb_id: 0,
-        poster_url: 'string',
-        release_year: '2000',
+        tmdbId: 0,
+        posterUrl: `${TMDB_POSTERS_URL}weyR73iYr1lWg17Q2r4sc7aEr2p.jpg`,
+        releaseYear: '2000',
         title: 'title',
-        media_type: 'tv',
+        mediaType: 'tv',
+        seasonsCount: 2,
+        episodesCount: 300,
       },
     ],
   },
