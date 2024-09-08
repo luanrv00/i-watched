@@ -4,15 +4,15 @@ import {useDebounce} from 'use-debounce'
 import {Input} from '@/app/ui'
 
 export function SearchForm({onSearch}: {onSearch: (param: string) => void}) {
-  const [searchQuery, setSearchQuery] = useState<null | string>(null)
-  const [debouncedSearchQuery] = useDebounce(searchQuery, 2000)
+  const [inputValue, setInputValue] = useState<string>('')
+  const [debouncedSearchQuery] = useDebounce(inputValue, 2000)
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
   }
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>): void {
-    setSearchQuery(e.target.value)
+    setInputValue(e.target.value)
   }
 
   useEffect(() => {
@@ -21,13 +21,18 @@ export function SearchForm({onSearch}: {onSearch: (param: string) => void}) {
     }
 
     onSearch(debouncedSearchQuery)
-  }, [debouncedSearchQuery])
+  }, [debouncedSearchQuery, onSearch])
 
   return (
     <form aria-label='form' onSubmit={onSubmit}>
       <div className='flex flex-col'>
         <label>Search for an Anime, TV Series or Movie</label>
-        <Input type='text' placeholder='Type anything...' onChange={onChange} />
+        <Input
+          type='text'
+          placeholder='Type anything...'
+          onChange={onChange}
+          value={inputValue}
+        />
       </div>
     </form>
   )
