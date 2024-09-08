@@ -8,9 +8,11 @@ export type TMDBResponseItemType = {
 }
 
 export type WatchItemType = {
-  tmdb_id: number
-  poster_url: string
-  release_year: string
+  tmdbId: number
+  posterUrl: string
+  releaseYear: string
   title: string
-  media_type: 'tv' | 'movie'
+  mediaType: 'tv' | 'movie' | 'person'
+  episodesCount?: number
+  seaonsCount?: number
 }
