@@ -1,6 +1,7 @@
 'use client'
 import {useEffect, useState} from 'react'
 import {useDebounce} from 'use-debounce'
+import {Input} from '@/app/ui'
 
 export function SearchForm({onSearch}: {onSearch: (param: string) => void}) {
   const [searchQuery, setSearchQuery] = useState<null | string>(null)
@@ -22,7 +23,7 @@ export function SearchForm({onSearch}: {onSearch: (param: string) => void}) {
     <form aria-label='form'>
       <div className='flex flex-col'>
         <label>Search for an Anime, TV Series or Movie</label>
-        <input type='text' placeholder='Type anything...' onChange={onChange} />
+        <Input type='text' placeholder='Type anything...' onChange={onChange} />
       </div>
     </form>
   )
