@@ -8,7 +8,7 @@ export async function GET(request: NextRequest): Promise<void | Response> {
   const searchTerm = searchParams.get('searchTerm')
 
   if (!searchTerm) {
-    return null
+    return
   }
 
   const searchMatches: TMDBItemType[] = await searchMulti(searchTerm)
