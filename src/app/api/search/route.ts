@@ -3,7 +3,7 @@ import type {TMDBItemType, WatchItemType} from '@/app/types/types'
 import {TMDB_POSTERS_URL} from '@/app/constants'
 import {searchMulti, getWatchItemDetails} from '@/app/services'
 
-export async function GET(request: NextRequest): Promise<null | Response> {
+export async function GET(request: NextRequest): Promise<void | Response> {
   const searchParams = request.nextUrl.searchParams
   const searchTerm = searchParams.get('searchTerm')
 
