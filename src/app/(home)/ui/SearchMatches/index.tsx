@@ -12,9 +12,9 @@ export function SearchMatches({
   }
 
   return (
-    <div className='mt-5 flex flex-col gap-3 md:flex-row md:flex-wrap'>
+    <ul className='mt-5 flex flex-col gap-3 md:flex-row md:flex-wrap'>
       {matchesList?.map((matchItem: WatchItemType) => (
-        <div key={matchItem.tmdbId} className='flex flex-row border w-96'>
+        <li key={matchItem.tmdbId} className='flex flex-row border w-96'>
           <Image
             src={matchItem.posterUrl}
             width='100'
@@ -32,8 +32,8 @@ export function SearchMatches({
               <Button>Add</Button>
             </div>
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
