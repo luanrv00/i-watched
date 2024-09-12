@@ -1,10 +1,10 @@
-import {TMDB_API_URL} from '@/app/constants'
+import {TMDB_API_URL} from '../../../app/constants'
 import type {TMDBItemDetailsType} from '@/app/types/types'
 
 const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
 
 export async function getWatchItemDetails(
-  id: number,
+  id: number
 ): Promise<TMDBItemDetailsType> {
   const apiEndpoint = `${TMDB_API_URL}/tv/${id}`
   const apiToken = `Bearer ${TMDB_API_READ_ACCESS_TOKEN}`
