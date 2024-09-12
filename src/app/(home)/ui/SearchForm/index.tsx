@@ -21,7 +21,8 @@ export function SearchForm({onSearch}: {onSearch: (param: string) => void}) {
     }
 
     onSearch(debouncedSearchQuery)
-  }, [debouncedSearchQuery, onSearch])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearchQuery])
 
   return (
     <form aria-label='form' onSubmit={onSubmit}>
