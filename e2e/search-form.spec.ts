@@ -1,4 +1,5 @@
 import {test, expect} from '@playwright/test'
+import {watchItemFixture} from '../fixtures'
 
 test.describe('search form', () => {
   test.beforeEach(async ({page}) => {
@@ -13,16 +14,7 @@ test.describe('search form', () => {
     test('shows items that match search', async ({page}) => {
       await page.route('*/**/api/search*', async route => {
         const json = {
-          data: [
-            {
-              tmdbId: 0,
-              posterUrl:
-                'https://image.tmdb.org/t/p/w300_and_h450_bestv2/5KGQEaE519pOD9DltmWBo6OcuH1.jpg',
-              releaseYear: '2016',
-              title: 'title',
-              mediaType: 'movie',
-            },
-          ],
+          data: [watchItemFixture],
         }
         await route.fulfill({json})
       })
@@ -34,16 +26,7 @@ test.describe('search form', () => {
     test('matched items have an "add" button', async ({page}) => {
       await page.route('*/**/api/search*', async route => {
         const json = {
-          data: [
-            {
-              tmdbId: 0,
-              posterUrl:
-                'https://image.tmdb.org/t/p/w300_and_h450_bestv2/5KGQEaE519pOD9DltmWBo6OcuH1.jpg',
-              releaseYear: '2016',
-              title: 'title',
-              mediaType: 'movie',
-            },
-          ],
+          data: [watchItemFixture],
         }
         await route.fulfill({json})
       })
@@ -58,16 +41,7 @@ test.describe('search form', () => {
     }) => {
       await page.route('*/**/api/search*', async route => {
         const json = {
-          data: [
-            {
-              tmdbId: 0,
-              posterUrl:
-                'https://image.tmdb.org/t/p/w300_and_h450_bestv2/5KGQEaE519pOD9DltmWBo6OcuH1.jpg',
-              releaseYear: '2016',
-              title: 'title',
-              mediaType: 'movie',
-            },
-          ],
+          data: [watchItemFixture],
         }
         await route.fulfill({json})
       })
