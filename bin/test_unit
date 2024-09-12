@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+bin/dev
+docker exec ivewatched-app yarn test:unit
