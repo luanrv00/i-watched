@@ -7,6 +7,12 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: bin/lint
+  test-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: bin/test_unit
   test-e2e:
     runs-on: ubuntu-latest
     steps:
