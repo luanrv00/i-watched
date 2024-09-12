@@ -53,6 +53,31 @@ test.describe('search form', () => {
       await expect(listItem.getByRole('button', {name: /add/i})).toBeVisible()
     })
 
-    test('clicking on "add" button adds the item to added list', ({page}) => {})
+    test('clicking on "add" button adds the item to added list', async ({
+      page,
+    }) => {
+      await page.route('*/**/api/search*', async route => {
+        const json = {
+          data: [
+            {
+              tmdbId: 0,
+              posterUrl:
+                'https://image.tmdb.org/t/p/w300_and_h450_bestv2/5KGQEaE519pOD9DltmWBo6OcuH1.jpg',
+              releaseYear: '2016',
+              title: 'title',
+              mediaType: 'movie',
+            },
+          ],
+        }
+        await route.fulfill({json})
+      })
+
+      const reqPromise = page.waitForRequest('*/**/api/watched')
+      await page.getByPlaceholder(/type anything/i).fill('matrix')
+      const listItem = page.getByRole('listitem')
+      await listItem.getByRole('button', {name: /add/i}).click()
+      const req = await reqPromise
+      expect(req.failure()).toBeFalsy()
+    })
   })
 })

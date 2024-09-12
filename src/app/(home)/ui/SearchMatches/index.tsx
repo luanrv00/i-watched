@@ -7,6 +7,10 @@ export function SearchMatches({
 }: {
   matchesList: null | WatchItemType[]
 }) {
+  async function onAdd() {
+    await fetch('/api/watched')
+  }
+
   if (!matchesList) {
     return
   }
@@ -29,7 +33,7 @@ export function SearchMatches({
               <p>episodes: {matchItem.episodesCount}</p>
             )}
             <div className='self-end content-end grow m-2'>
-              <Button>Add</Button>
+              <Button onClick={onAdd}>Add</Button>
             </div>
           </div>
         </li>
