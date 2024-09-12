@@ -1,4 +1,4 @@
-import {TMDB_API_URL} from '@/app/constants'
+import {TMDB_API_URL} from '../../constants'
 import type {TMDBItemType} from '@/app/types/types'
 
 const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
@@ -15,8 +15,8 @@ export async function searchMulti(searchTerm: string): Promise<TMDBItemType[]> {
     .then(res => res.json())
     .then(res =>
       res.results.filter(
-        (matchItem: TMDBItemType) => matchItem['media_type'] !== 'person',
-      ),
+        (matchItem: TMDBItemType) => matchItem['media_type'] !== 'person'
+      )
     )
     .catch(err => console.log('---------------- err', err))
 
