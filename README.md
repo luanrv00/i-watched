@@ -18,6 +18,12 @@ bin/dev
 bin/lint
 ```
 
+#### Running unit tests
+
+```sh
+bin/test_unit
+```
+
 #### Running e2e tests
 
 ```sh
