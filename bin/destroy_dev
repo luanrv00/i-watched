@@ -1,3 +1,5 @@
 #!/usr/bin/env sh
 docker rm -fv ivewatched-app
 docker rmi -f ivewatched-app
+docker rm -f ivewatched-e2e
+docker rmi -f ivewatched-e2e
