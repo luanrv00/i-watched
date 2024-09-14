@@ -3,12 +3,12 @@
 import {useState} from 'react'
 import {SearchForm} from '../SearchForm'
 import {SearchMatches} from '../SearchMatches'
-import type {WatchItemType} from '@/app/types/types'
+import type {WatchItemFullType} from '@/app/types/types'
 
 export function SearchContainer() {
-  const [searchMatches, setSearchMatches] = useState<null | WatchItemType[]>(
-    null,
-  )
+  const [searchMatches, setSearchMatches] = useState<
+    null | WatchItemFullType[]
+  >(null)
 
   async function onSearch(searchTerm: string) {
     const searchQueryEndpoint = `/api/search?searchTerm=${searchTerm}`
