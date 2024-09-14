@@ -1,7 +1,11 @@
 import type {NextRequest} from 'next/server'
-import type {TMDBItemType, WatchItemType} from '@/app/types/types'
-import {TMDB_POSTERS_URL} from '@/app/constants'
+import type {
+  TMDBItemType,
+  WatchItemDetailsType,
+  WatchItemType,
+} from '@/app/types/types'
 import {searchMulti, getWatchItemDetails} from '@/app/services'
+import {buildWatchItem, buildWatchItemDetails} from '@/app/utils'
 
 export async function GET(request: NextRequest): Promise<void | Response> {
   const searchParams = request.nextUrl.searchParams
@@ -16,18 +20,11 @@ export async function GET(request: NextRequest): Promise<void | Response> {
 
   for (const matchItem of searchMatches) {
     const matchItemDetails = await getWatchItemDetails(matchItem.id)
-    const seasonsCount = matchItemDetails.number_of_seasons
-    const episodesCount = matchItemDetails.number_of_episodes
+    const watchItem: WatchItemType = buildWatchItem(matchItem)
+    const watchItemDetails: WatchItemDetailsType =
+      buildWatchItemDetails(matchItemDetails)
 
-    watchItems.push({
-      tmdbId: matchItem.id,
-      posterUrl: `${TMDB_POSTERS_URL}/${matchItem.poster_path}`,
-      releaseYear: matchItem.release_date?.split('-')[0],
-      title: matchItem?.title || matchItem?.name,
-      mediaType: matchItem.media_type,
-      seasonsCount,
-      episodesCount,
-    })
+    watchItems.push({...watchItem, ...watchItemDetails})
   }
 
   return Response.json({data: watchItems})

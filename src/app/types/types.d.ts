@@ -18,6 +18,9 @@ export type WatchItemType = {
   releaseYear: string
   title: string
   mediaType: 'tv' | 'movie' | 'person'
-  episodesCount?: number
-  seasonsCount?: number
+}
+
+export type WatchItemDetailsType = {
+  seasonsCount: number
+  episodesCount: number
 }
