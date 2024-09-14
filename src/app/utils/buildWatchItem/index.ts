@@ -1,5 +1,5 @@
-import {TMDB_POSTERS_URL} from '@/app/constants'
-import type {TMDBItemType, WatchItemType} from '@/app/types/types'
+import {TMDB_POSTERS_URL} from '../../../app/constants'
+import type {TMDBItemType, WatchItemType} from '../../../app/types/types'
 
 export function buildWatchItem(tmdbData: TMDBItemType): WatchItemType {
   return {

@@ -1,4 +1,7 @@
-import type {TMDBItemDetailsType, WatchItemDetailsType} from '@/app/types/types'
+import type {
+  TMDBItemDetailsType,
+  WatchItemDetailsType,
+} from '../../../app/types/types'
 
 export function buildWatchItemDetails(
   tmdbData: TMDBItemDetailsType
