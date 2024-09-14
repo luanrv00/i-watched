@@ -1,14 +1,19 @@
 import Image from 'next/image'
 import {Button} from '@/app/ui'
 import type {WatchItemFullType} from '@/app/types/types'
+import {useState} from 'react'
 
 export function SearchMatches({
   matchesList,
 }: {
   matchesList: null | WatchItemFullType[]
 }) {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
   async function onAdd() {
+    setIsLoading(true)
     await fetch('/api/watched')
+    setIsLoading(false)
   }
 
   if (!matchesList) {
@@ -33,7 +38,9 @@ export function SearchMatches({
               <p>episodes: {matchItem.episodesCount}</p>
             )}
             <div className='self-end content-end grow m-2'>
-              <Button onClick={onAdd}>Add</Button>
+              <Button onClick={onAdd} isLoading={isLoading}>
+                Add
+              </Button>
             </div>
           </div>
         </li>
