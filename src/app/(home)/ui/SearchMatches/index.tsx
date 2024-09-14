@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import {Button} from '@/app/ui'
-import type {WatchItemType} from '@/app/types/types'
+import type {WatchItemFullType} from '@/app/types/types'
 
 export function SearchMatches({
   matchesList,
 }: {
-  matchesList: null | WatchItemType[]
+  matchesList: null | WatchItemFullType[]
 }) {
   async function onAdd() {
     await fetch('/api/watched')
@@ -17,7 +17,7 @@ export function SearchMatches({
 
   return (
     <ul className='mt-5 flex flex-col gap-3 md:flex-row md:flex-wrap'>
-      {matchesList?.map((matchItem: WatchItemType) => (
+      {matchesList?.map((matchItem: WatchItemFullType) => (
         <li key={matchItem.tmdbId} className='flex flex-row border w-96'>
           <Image
             src={matchItem.posterUrl}
