@@ -1,7 +1,7 @@
+import {useState} from 'react'
 import Image from 'next/image'
 import {Button} from '@/app/ui'
 import type {WatchItemFullType} from '@/app/types/types'
-import {useState} from 'react'
 
 export function SearchMatches({
   matchesList,

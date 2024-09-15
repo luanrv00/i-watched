@@ -13,7 +13,11 @@ export function Button({
   const value = isLoading ? <LoadingIcon /> : children
 
   return (
-    <button onClick={onClick} className='bg-lime-200 px-2 rounded'>
+    <button
+      onClick={onClick}
+      disabled={isLoading}
+      className='bg-lime-200 px-2 rounded'
+    >
       {value}
     </button>
   )
