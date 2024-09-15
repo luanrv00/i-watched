@@ -3,4 +3,4 @@ COPY . /app
 WORKDIR /app
 RUN yarn install --frozen-lockfile
 RUN yarn build
-EXPOSE 3000 6006
+EXPOSE 3000 6006 5432
