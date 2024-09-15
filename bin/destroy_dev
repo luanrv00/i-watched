@@ -3,3 +3,5 @@ docker rm -fv ivewatched-app
 docker rmi -f ivewatched-app
 docker rm -f ivewatched-e2e
 docker rmi -f ivewatched-e2e
+docker rm -f ivewatched-app-db
+docker rm -f ivewatched-app-db-migration
