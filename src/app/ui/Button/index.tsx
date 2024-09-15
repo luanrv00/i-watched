@@ -6,7 +6,7 @@ export function Button({
   onClick,
   isLoading,
 }: {
-  children: ReactNode
+  children?: ReactNode
   onClick: () => void
   isLoading?: boolean
 }) {

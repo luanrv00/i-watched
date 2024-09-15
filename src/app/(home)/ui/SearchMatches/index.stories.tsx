@@ -4,6 +4,7 @@ import {SearchMatches} from '.'
 
 const meta: Meta<typeof SearchMatches> = {
   component: SearchMatches,
+  tags: ['autodocs'],
 }
 export default meta
 
