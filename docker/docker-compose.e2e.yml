@@ -2,8 +2,6 @@ services:
   e2e:
     image: ivewatched-e2e
     container_name: ivewatched-e2e
-    env_file:
-      - ../.env
     volumes:
       - ..:/app
       - /app/node_modules
