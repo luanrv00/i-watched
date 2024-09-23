@@ -23,3 +23,9 @@ export const Primary: StoryObj<typeof SearchMatches> = {
     ],
   },
 }
+
+export const NoResults: StoryObj<typeof SearchMatches> = {
+  args: {
+    matchesList: [],
+  },
+}

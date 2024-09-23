@@ -17,7 +17,7 @@ export function SearchMatches({
   }
 
   if (!matchesList) {
-    return
+    return <p>No results found.</p>
   }
 
   return (
