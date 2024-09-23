@@ -2,6 +2,8 @@ import {TMDB_API_URL} from '../../constants'
 import {getWatchItemDetails} from '.'
 import type {TMDBItemDetailsType} from '@/app/types/types'
 
+const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
+
 describe('getWatchItemDetails', () => {
   const fakeId = 0
   const apiEndpoint = `${TMDB_API_URL}/tv/${fakeId}`
@@ -26,7 +28,7 @@ describe('getWatchItemDetails', () => {
 
   it('calls tmdb series details api', () => {
     expect(fetch).toHaveBeenCalledWith(apiEndpoint, {
-      headers: {authorization: 'Bearer undefined'},
+      headers: {authorization: `Bearer ${TMDB_API_READ_ACCESS_TOKEN}`},
     })
   })
 

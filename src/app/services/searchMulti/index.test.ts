@@ -2,6 +2,8 @@ import {TMDB_API_URL} from '../../constants'
 import {searchMulti} from '.'
 import type {TMDBItemType} from '@/app/types/types'
 
+const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
+
 describe('searchMulti', () => {
   const searchTerm = 'matrix'
   const apiEndpoint = `${TMDB_API_URL}/search/multi?query=${searchTerm}`
@@ -31,7 +33,7 @@ describe('searchMulti', () => {
 
   it('calls tmdb search multi api', () => {
     expect(fetch).toHaveBeenCalledWith(apiEndpoint, {
-      headers: {authorization: 'Bearer undefined'},
+      headers: {authorization: `Bearer ${TMDB_API_READ_ACCESS_TOKEN}`},
     })
   })
 
