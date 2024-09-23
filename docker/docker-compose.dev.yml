@@ -2,8 +2,11 @@ services:
   db:
     image: postgres
     container_name: ivewatched-app-db
-    env_file:
-      - ../.env
+    environment:
+      - POSTGRES_URL=postgres://postgres:pass@db:5432/ivewatched
+      - POSTGRES_DB=ivewatched
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pass
     ports:
       - 5432:5432
     volumes:
@@ -11,14 +14,20 @@ services:
   db-migration:
     image: ivewatched-app
     container_name: ivewatched-app-db-migration
-    env_file:
-      - ../.env
+    environment:
+      - POSTGRES_URL=postgres://postgres:pass@db:5432/ivewatched
+      - POSTGRES_DB=ivewatched
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pass
     entrypoint: yarn db:migrate
   app:
     image: ivewatched-app
     container_name: ivewatched-app
-    env_file:
-      - ../.env
+    environment:
+      - POSTGRES_URL=postgres://postgres:pass@db:5432/ivewatched
+      - POSTGRES_DB=ivewatched
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pass
     ports:
       - 3000:3000
       - 6006:6006
