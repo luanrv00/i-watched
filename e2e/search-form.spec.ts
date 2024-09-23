@@ -36,9 +36,7 @@ test.describe('search form', () => {
       await expect(listItem.getByRole('button', {name: /add/i})).toBeVisible()
     })
 
-    test('clicking on "add" button adds the item to added list', async ({
-      page,
-    }) => {
+    test('clicking on "add" button calls add watched api', async ({page}) => {
       await page.route('*/**/api/search*', async route => {
         const json = {
           data: [watchItemFixture],
