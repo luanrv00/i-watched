@@ -1,5 +1,6 @@
 import Knex from 'knex'
 import config from '../../../../../knexfile'
+import {NextResponse} from 'next/server'
 
 export async function GET() {
   try {
@@ -20,7 +21,10 @@ export async function GET() {
       table.integer('season_number')
       table.integer('episode_number')
     })
+
+    return NextResponse.json({success: true})
   } catch (e) {
     console.log('---------------e', e)
+    return NextResponse.json({success: false})
   }
 }
