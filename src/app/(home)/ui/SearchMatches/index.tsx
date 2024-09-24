@@ -16,7 +16,9 @@ export function SearchMatches({
     setIsLoading(false)
   }
 
-  if (!matchesList) {
+  const areMatchesNotFound = matchesList?.length === 0
+
+  if (areMatchesNotFound) {
     return <p>No results found.</p>
   }
 

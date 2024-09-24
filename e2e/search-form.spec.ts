@@ -63,6 +63,7 @@ test.describe('search form', () => {
           await route.fulfill({json})
         })
 
+        await expect(page.getByText(/no results found/i)).not.toBeVisible()
         await page.getByPlaceholder(/type anything/i).fill('matrix')
         await expect(page.getByText(/no results found/i)).toBeVisible()
       })
