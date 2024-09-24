@@ -2,8 +2,6 @@ services:
   e2e:
     image: ivewatched-e2e
     container_name: ivewatched-e2e
-    environment:
-      - BASE_URL=$BASE_URL
     volumes:
       - ..:/app
       - /app/node_modules
