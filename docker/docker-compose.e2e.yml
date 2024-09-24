@@ -5,4 +5,9 @@ services:
     volumes:
       - ..:/app
       - /app/node_modules
+    networks:
+      - default
     command: yarn test:e2e
+networks:
+  default:
+    driver: bridge
