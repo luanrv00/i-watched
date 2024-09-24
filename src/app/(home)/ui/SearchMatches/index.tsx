@@ -12,7 +12,7 @@ export function SearchMatches({
 
   async function onAdd() {
     setIsLoading(true)
-    await fetch('/api/watched')
+    await fetch('/api/shows/watched_items')
     setIsLoading(false)
   }
 

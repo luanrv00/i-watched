@@ -13,7 +13,7 @@ test.describe('search form', () => {
   test.describe('when searching', () => {
     test.describe('when has matches', () => {
       test('shows items that match search', async ({page}) => {
-        await page.route('*/**/api/search*', async route => {
+        await page.route('*/**/api/shows/search*', async route => {
           const json = {
             data: [watchItemFixture],
           }
@@ -25,7 +25,7 @@ test.describe('search form', () => {
       })
 
       test('matched items have an "add" button', async ({page}) => {
-        await page.route('*/**/api/search*', async route => {
+        await page.route('*/**/api/shows/search*', async route => {
           const json = {
             data: [watchItemFixture],
           }
@@ -38,14 +38,14 @@ test.describe('search form', () => {
       })
 
       test('clicking on "add" button calls add watched api', async ({page}) => {
-        await page.route('*/**/api/search*', async route => {
+        await page.route('*/**/api/shows/search*', async route => {
           const json = {
             data: [watchItemFixture],
           }
           await route.fulfill({json})
         })
 
-        const reqPromise = page.waitForRequest('*/**/api/watched')
+        const reqPromise = page.waitForRequest('*/**/api/shows/watched_items')
         await page.getByPlaceholder(/type anything/i).fill('matrix')
         const listItem = page.getByRole('listitem')
         await listItem.getByRole('button', {name: /add/i}).click()
@@ -56,7 +56,7 @@ test.describe('search form', () => {
 
     test.describe('when has not matches', () => {
       test('renders a message', async ({page}) => {
-        await page.route('*/**/api/search*', async route => {
+        await page.route('*/**/api/shows/search*', async route => {
           const json = {
             data: [],
           }

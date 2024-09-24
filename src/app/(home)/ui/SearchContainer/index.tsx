@@ -11,7 +11,7 @@ export function SearchContainer() {
   >(null)
 
   async function onSearch(searchTerm: string) {
-    const searchQueryEndpoint = `/api/search?searchTerm=${searchTerm}`
+    const searchQueryEndpoint = `/api/shows/search?searchTerm=${searchTerm}`
     await fetch(searchQueryEndpoint)
       .then(res => res.json())
       .then(res => setSearchMatches(res.data))
