@@ -38,16 +38,23 @@ test.describe('search form', () => {
       })
 
       test('clicking on "add" button calls add watched api', async ({page}) => {
-        await page.route('*/**/api/shows/search*', async route => {
-          const json = {
-            data: [watchItemFixture],
+        const searchTerm = watchItemFixture.title
+        const reqSearchPromise = page.route(
+          '*/**/api/shows/search*',
+          async route => {
+            const json = {
+              data: [watchItemFixture],
+            }
+            await route.fulfill({json})
           }
-          await route.fulfill({json})
-        })
+        )
 
         const reqPromise = page.waitForRequest('*/**/api/shows/watched_items')
-        await page.getByPlaceholder(/type anything/i).fill('matrix')
-        const listItem = page.getByRole('listitem')
+        await page.getByPlaceholder(/type anything/i).fill(searchTerm)
+        await reqSearchPromise
+        const listItem = page
+          .getByRole('listitem')
+          .filter({has: page.getByText(searchTerm)})
         await listItem.getByRole('button', {name: /add/i}).click()
         const req = await reqPromise
         expect(req.failure()).toBeFalsy()
