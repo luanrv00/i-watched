@@ -1,3 +1,4 @@
+name: ivewatched
 services:
   e2e:
     image: ivewatched-e2e
