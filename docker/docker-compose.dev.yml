@@ -20,7 +20,6 @@ services:
       - POSTGRES_DB=ivewatched
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pass
-    entrypoint: yarn db:migrate
   app:
     image: ivewatched-app
     container_name: ivewatched-app
