@@ -28,6 +28,9 @@ services:
       - POSTGRES_DB=ivewatched
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pass
+    env_file:
+      - path: .env
+        required: false
     ports:
       - 80:3000
       - 6006:6006
