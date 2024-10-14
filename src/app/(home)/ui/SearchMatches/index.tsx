@@ -35,6 +35,7 @@ export function SearchMatches({
           <div className='ml-2 w-full flex flex-col'>
             <p>{matchItem.title}</p>
             <p>{matchItem.releaseYear}</p>
+            <p>{matchItem.mediaType}</p>
             {matchItem.seasonsCount && <p>seasons: {matchItem.seasonsCount}</p>}
             {matchItem.episodesCount && (
               <p>episodes: {matchItem.episodesCount}</p>
