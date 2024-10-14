@@ -2,6 +2,7 @@ import type {NextRequest} from 'next/server'
 import type {
   TMDBItemType,
   WatchItemDetailsType,
+  WatchItemFullType,
   WatchItemType,
 } from '@/app/types/types'
 import {searchMulti, getWatchItemDetails} from '@/app/services'
@@ -19,12 +20,20 @@ export async function GET(request: NextRequest): Promise<void | Response> {
   const watchItems: WatchItemType[] = []
 
   for (const matchItem of searchMatches) {
-    const matchItemDetails = await getWatchItemDetails(matchItem.id)
-    const watchItem: WatchItemType = buildWatchItem(matchItem)
-    const watchItemDetails: WatchItemDetailsType =
-      buildWatchItemDetails(matchItemDetails)
+    let buildedMatchItem: {} | WatchItemFullType = {}
 
-    watchItems.push({...watchItem, ...watchItemDetails})
+    if (matchItem.media_type !== 'movie') {
+      const matchItemDetails = await getWatchItemDetails(matchItem.id)
+      const watchItemDetails: WatchItemDetailsType =
+        buildWatchItemDetails(matchItemDetails)
+
+      buildedMatchItem = {...buildedMatchItem, ...watchItemDetails}
+    }
+
+    const watchItem: WatchItemType = buildWatchItem(matchItem)
+
+    buildedMatchItem = {...buildedMatchItem, ...watchItem}
+    watchItems.push(buildedMatchItem as WatchItemFullType)
   }
 
   return Response.json({data: watchItems})
