@@ -1,5 +1,6 @@
-import {fireEvent, render, screen, waitFor} from '@testing-library/react'
+import {fireEvent, render, screen} from '@testing-library/react'
 import {watchItemFixture} from '../../../../../fixtures'
+import {postWatchedItem} from '@/app/services'
 import {SearchMatch} from '.'
 
 describe(SearchMatch, () => {
@@ -63,10 +64,10 @@ describe(SearchMatch, () => {
       render(<SearchMatch matchItem={watchItemFixture} />)
     })
 
-    it('calls post watched_items api', async () => {
+    it('calls postWatchedItem service', async () => {
+      jest.mock('../../../services/postWatchedItem')
       fireEvent.click(screen.getAllByRole('button', {name: /add/i})[0])
-      // TODO: expect service post watched item to have been called
-      //expect().toHaveBeenCalled()
+      expect(postWatchedItem).toHaveBeenCalled
     })
   })
 })
