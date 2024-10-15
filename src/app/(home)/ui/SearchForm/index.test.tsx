@@ -1,6 +1,6 @@
+import {act} from 'react'
 import {fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {SearchForm} from '.'
-import {act} from 'react'
 
 describe(SearchForm, () => {
   it('renders a form', async () => {
