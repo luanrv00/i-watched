@@ -50,6 +50,12 @@ describe(SearchMatch, () => {
       const expectedText = `episodes: ${matchItemFull.episodesCount}`
       expect(screen.getByText(expectedText)).toBeInTheDocument()
     })
+
+    it('renders button to add match to watched', () => {
+      expect(
+        screen.getAllByRole('button', {name: /add/i})[0]
+      ).toBeInTheDocument()
+    })
   })
 
   describe('when clicking on add button', () => {
