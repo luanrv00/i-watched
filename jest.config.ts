@@ -14,7 +14,7 @@ const config: Config = {
   clearMocks: true,
   coverageProvider: 'v8',
   preset: 'ts-jest',
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
   testEnvironment: 'jsdom',
   testMatch: ['**/?(*.)+(test).[tj]s?(x)'],
   testPathIgnorePatterns: ['/node_modules/'],
