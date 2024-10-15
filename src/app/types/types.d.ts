@@ -21,8 +21,8 @@ export type WatchItemType = {
 }
 
 export type WatchItemDetailsType = {
-  seasonsCount: number
-  episodesCount: number
+  seasonsCount?: number
+  episodesCount?: number
 }
 
 export type WatchItemFullType = WatchItemType & WatchItemDetailsType
