@@ -8,6 +8,13 @@ describe(SearchForm, () => {
     expect(screen.getByRole('form')).toBeInTheDocument()
   })
 
+  it('renders input label', async () => {
+    render(<SearchForm onSearch={() => {}} />)
+    expect(
+      screen.getByLabelText(/Search for an Anime, TV Series or Movie/i)
+    ).toBeInTheDocument()
+  })
+
   describe('when searching', () => {
     it('calls onSearch', async () => {
       const onSearch = jest.fn()

@@ -1,9 +1,11 @@
 export function Input({
+  id,
   type = 'text',
   placeholder,
   onChange,
   value,
 }: {
+  id: string
   type: string
   placeholder: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -11,6 +13,7 @@ export function Input({
 }) {
   return (
     <input
+      id={id}
       type={type}
       placeholder={placeholder}
       onChange={onChange}

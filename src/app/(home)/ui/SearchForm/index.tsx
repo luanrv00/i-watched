@@ -27,8 +27,11 @@ export function SearchForm({onSearch}: {onSearch: (param: string) => void}) {
   return (
     <form aria-label='form' onSubmit={onSubmit}>
       <div className='flex flex-col'>
-        <label>Search for an Anime, TV Series or Movie</label>
+        <label htmlFor='search-input'>
+          Search for an Anime, TV Series or Movie
+        </label>
         <Input
+          id='search-input'
           type='text'
           placeholder='Type anything...'
           onChange={onChange}
