@@ -40,7 +40,6 @@ services:
       - db-migration
     volumes:
       - ..:/app
-      - /app/node_modules
     networks:
       - default
 volumes:
