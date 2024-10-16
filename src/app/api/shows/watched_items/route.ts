@@ -18,3 +18,15 @@ export async function POST(request: NextRequest): Promise<void | Response> {
     return Response.json({ok: false})
   }
 }
+
+export async function GET() {
+  const knex = Knex(config)
+
+  try {
+    const watchedItems = await knex('watched_items').where({user_id: 0})
+    return Response.json({ok: true, data: watchedItems})
+  } catch (e) {
+    console.log('-----------------e', e)
+    return Response.json({ok: false})
+  }
+}
