@@ -26,3 +26,10 @@ export type WatchItemDetailsType = {
 }
 
 export type WatchItemFullType = WatchItemType & WatchItemDetailsType
+
+export type WatchedItemDBType = {
+  id: number
+  user_id: number
+  tmdb_id: number
+  media_type: 'tv' | 'movie'
+}

@@ -6,7 +6,7 @@ describe('postWatchedItem', () => {
     global.fetch = jest.fn(() => Promise.resolve()) as jest.Mock
   })
 
-  it('calls watched_items api', async () => {
+  it('calls POST watched_items api', async () => {
     await postWatchedItem({
       tmdbId: watchItemFixture.tmdbId,
       mediaType: watchItemFixture.mediaType,
