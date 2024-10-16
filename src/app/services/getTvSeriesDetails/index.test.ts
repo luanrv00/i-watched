@@ -12,7 +12,6 @@ describe('getTvSeriesDetails', () => {
     poster_path: '',
     release_date: '',
     title: '',
-    name: '',
     media_type: 'tv',
   }
 
@@ -27,7 +26,6 @@ describe('getTvSeriesDetails', () => {
                 poster_path: 'string',
                 release_date: '2000',
                 title: 'title',
-                name: 'name',
                 media_type: 'tv',
               },
             ],
@@ -38,7 +36,7 @@ describe('getTvSeriesDetails', () => {
     response = await getTvSeriesDetails(tmdbId)
   })
 
-  it('calls tmdb tv series api', () => {
+  it('calls tmdb tv series details api', () => {
     expect(fetch).toHaveBeenCalledWith(apiEndpoint, {
       headers: {authorization: `Bearer ${TMDB_API_READ_ACCESS_TOKEN}`},
     })
@@ -56,8 +54,8 @@ describe('getTvSeriesDetails', () => {
     expect(response['release_date']).not.toBeNull()
   })
 
-  it('returns name', () => {
-    expect(response['name']).not.toBeNull()
+  it('returns title', () => {
+    expect(response['title']).not.toBeNull()
   })
 
   it('returns media_type', () => {

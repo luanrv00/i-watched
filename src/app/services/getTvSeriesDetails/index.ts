@@ -21,8 +21,7 @@ export async function getTvSeriesDetails(
     id: tvSeriesDetails.id,
     poster_path: tvSeriesDetails.poster_path,
     release_date: tvSeriesDetails.release_date,
-    title: tvSeriesDetails.title,
-    name: tvSeriesDetails.name,
+    title: tvSeriesDetails.title || tvSeriesDetails.name,
     media_type: tvSeriesDetails.media_type,
   }
 }
