@@ -1,6 +1,12 @@
-export async function postWatchedItem(tmdbId: number): Promise<void> {
+export async function postWatchedItem({
+  tmdbId,
+  mediaType,
+}: {
+  tmdbId: number
+  mediaType: string
+}): Promise<void> {
   await fetch('/api/shows/watched_items', {
     method: 'POST',
-    body: JSON.stringify({tmdbId}),
+    body: JSON.stringify({tmdbId, mediaType}),
   })
 }

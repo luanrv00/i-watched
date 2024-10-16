@@ -10,6 +10,7 @@ export async function GET() {
       table.timestamps()
       table.integer('user_id')
       table.integer('tmdb_id')
+      table.string('media_type')
       //table.boolean('has_episodes')
     })
 

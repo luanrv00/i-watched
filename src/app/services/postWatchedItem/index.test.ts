@@ -7,10 +7,16 @@ describe('postWatchedItem', () => {
   })
 
   it('calls watched_items api', async () => {
-    await postWatchedItem(watchItemFixture.tmdbId)
+    await postWatchedItem({
+      tmdbId: watchItemFixture.tmdbId,
+      mediaType: watchItemFixture.mediaType,
+    })
     expect(fetch).toHaveBeenCalledWith('/api/shows/watched_items', {
       method: 'POST',
-      body: JSON.stringify({tmdbId: watchItemFixture.tmdbId}),
+      body: JSON.stringify({
+        tmdbId: watchItemFixture.tmdbId,
+        mediaType: watchItemFixture.mediaType,
+      }),
     })
   })
 })

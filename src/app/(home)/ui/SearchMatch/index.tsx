@@ -10,7 +10,10 @@ export function SearchMatch({matchItem}: {matchItem: WatchItemFullType}) {
 
   async function onAdd() {
     setIsLoading(true)
-    await postWatchedItem(matchItem.tmdbId)
+    await postWatchedItem({
+      tmdbId: matchItem.tmdbId,
+      mediaType: matchItem.mediaType,
+    })
     setIsLoading(false)
   }
 
