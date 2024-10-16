@@ -10,7 +10,7 @@ export async function GET() {
       table.timestamps()
       table.integer('user_id')
       table.integer('tmdb_id')
-      table.boolean('has_episodes')
+      //table.boolean('has_episodes')
     })
 
     await knex.schema.createTable('watched_episodes', table => {
@@ -18,8 +18,8 @@ export async function GET() {
       table.timestamps()
       table.integer('watched_item_id')
       table.integer('tmdb_id')
-      table.integer('season_number')
-      table.integer('episode_number')
+      //table.integer('season_number')
+      //table.integer('episode_number')
     })
 
     return NextResponse.json({success: true})
@@ -27,4 +27,4 @@ export async function GET() {
     console.log('---------------e', e)
     return NextResponse.json({success: false})
   }
-}
+
