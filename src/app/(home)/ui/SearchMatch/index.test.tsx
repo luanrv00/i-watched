@@ -1,4 +1,4 @@
-jest.mock('../../../services/postWatchedItem')
+jest.mock('../../../services/api/postWatchedItem')
 import {act, fireEvent, render, screen} from '@testing-library/react'
 import {watchItemFixture} from '../../../../../fixtures'
 import {postWatchedItem} from '@/app/services'
