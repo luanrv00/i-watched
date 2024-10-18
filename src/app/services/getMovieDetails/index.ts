@@ -1,3 +1,4 @@
+'use server'
 import {TMDB_API_URL} from '../../constants'
 import type {TMDBItemType} from '@/app/types/types'
 

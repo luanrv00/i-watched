@@ -6,7 +6,7 @@ import {getTvSeriesDetails} from '../getTvSeriesDetails'
 export async function getWatchedItemsWithDetails() {
   const watchedItems = await getWatchedItems()
 
-  if (!watchedItems?.data.length) {
+  if (!watchedItems?.data?.length) {
     return {watchedTvSeries: null, watchedMovies: null}
   }
 
@@ -15,12 +15,12 @@ export async function getWatchedItemsWithDetails() {
 
   for (const watchedItem of watchedItems.data) {
     if (watchedItem.media_type === 'tv') {
-      const watchedItemDetails = await getTvSeriesDetails(watchedItem.id)
+      const watchedItemDetails = await getTvSeriesDetails(watchedItem.tmdb_id)
       watchedTvSeries.push(watchedItemDetails)
     }
 
     if (watchedItem.media_type === 'movie') {
-      const watchedItemDetails = await getMovieDetails(watchedItem.id)
+      const watchedItemDetails = await getMovieDetails(watchedItem.tmdb_id)
       watchedMovies.push(watchedItemDetails)
     }
   }
