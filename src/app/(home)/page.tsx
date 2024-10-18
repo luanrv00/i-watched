@@ -1,6 +1,6 @@
 'use client'
 import {Container, Section, Header} from '../ui'
-import {SearchContainer} from './ui'
+import {SearchContainer, WatchedItems} from './ui'
 
 export default function Home() {
   return (
@@ -11,6 +11,7 @@ export default function Home() {
       <Section>
         <main>
           <SearchContainer />
+          <WatchedItems />
         </main>
       </Section>
     </Container>
