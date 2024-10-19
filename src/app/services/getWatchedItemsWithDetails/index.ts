@@ -21,13 +21,19 @@ export async function getWatchedItemsWithDetails(): Promise<{
     if (watchedItem.media_type === 'tv') {
       const watchedItemDetails = await getTvSeriesDetails(watchedItem.tmdb_id)
       const buildedWatchedItem = buildWatchItem(watchedItemDetails)
-      watchedTvSeries.push(buildedWatchedItem)
+      watchedTvSeries.push({
+        ...buildedWatchedItem,
+        mediaType: watchedItem.media_type,
+      })
     }
 
     if (watchedItem.media_type === 'movie') {
       const watchedItemDetails = await getMovieDetails(watchedItem.tmdb_id)
       const buildedWatchedItem = buildWatchItem(watchedItemDetails)
-      watchedMovies.push(buildedWatchedItem)
+      watchedMovies.push({
+        ...buildedWatchedItem,
+        mediaType: watchedItem.media_type,
+      })
     }
   }
 
