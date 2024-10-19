@@ -1,7 +1,7 @@
 import {TMDB_POSTERS_URL} from '../../../app/constants'
-import type {TMDBItemType, WatchItemType} from '../../../app/types/types'
+import type {TMDBTvSeriesType, WatchItemType} from '../../../app/types/types'
 
-export function buildWatchItem(tmdbData: TMDBItemType): WatchItemType {
+export function buildWatchItem(tmdbData: TMDBTvSeriesType): WatchItemType {
   const title = tmdbData?.title || (tmdbData?.name as string)
 
   return {
@@ -10,5 +10,7 @@ export function buildWatchItem(tmdbData: TMDBItemType): WatchItemType {
     releaseYear: tmdbData.release_date?.split('-')[0],
     title,
     mediaType: tmdbData.media_type,
+    seasonsCount: tmdbData.number_of_seasons,
+    episodesCount: tmdbData.number_of_episodes,
   }
 }

@@ -1,12 +1,7 @@
 import type {NextRequest} from 'next/server'
-import type {
-  TMDBItemType,
-  WatchItemDetailsType,
-  WatchItemFullType,
-  WatchItemType,
-} from '@/app/types/types'
-import {searchMulti, getWatchItemDetails} from '@/app/services'
-import {buildWatchItem, buildWatchItemDetails} from '@/app/utils'
+import type {TMDBItemType, WatchItemType} from '@/app/types/types'
+import {searchMulti, getTvSeriesDetails} from '@/app/services'
+import {buildWatchItem} from '@/app/utils'
 
 export async function GET(request: NextRequest): Promise<void | Response> {
   const searchParams = request.nextUrl.searchParams
@@ -20,20 +15,15 @@ export async function GET(request: NextRequest): Promise<void | Response> {
   const watchItems: WatchItemType[] = []
 
   for (const matchItem of searchMatches) {
-    let buildedMatchItem: {} | WatchItemFullType = {}
+    let buildedMatchItem: {} | WatchItemType = {}
 
     if (matchItem.media_type !== 'movie') {
-      const matchItemDetails = await getWatchItemDetails(matchItem.id)
-      const watchItemDetails: WatchItemDetailsType =
-        buildWatchItemDetails(matchItemDetails)
-
-      buildedMatchItem = {...buildedMatchItem, ...watchItemDetails}
+      const watchTvSeries = await getTvSeriesDetails(matchItem.id)
+      buildedMatchItem = buildWatchItem(watchTvSeries)
     }
 
-    const watchItem: WatchItemType = buildWatchItem(matchItem)
-
-    buildedMatchItem = {...buildedMatchItem, ...watchItem}
-    watchItems.push(buildedMatchItem as WatchItemFullType)
+    buildedMatchItem = buildWatchItem(matchItem)
+    watchItems.push(buildedMatchItem as WatchItemType)
   }
 
   return Response.json({data: watchItems})

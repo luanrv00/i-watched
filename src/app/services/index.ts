@@ -1,6 +1,5 @@
 export * from './api'
 export * from './searchMulti'
-export * from './getWatchItemDetails'
 export * from './getTvSeriesDetails'
 export * from './getMovieDetails'
 export * from './getWatchedItemsWithDetails'

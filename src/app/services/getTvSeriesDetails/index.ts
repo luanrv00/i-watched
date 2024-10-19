@@ -1,12 +1,12 @@
 'use server'
 import {TMDB_API_URL} from '../../constants'
-import type {TMDBItemType} from '@/app/types/types'
+import type {TMDBTvSeriesType} from '@/app/types/types'
 
 const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
 
 export async function getTvSeriesDetails(
   tmdbId: number
-): Promise<TMDBItemType> {
+): Promise<TMDBTvSeriesType> {
   const apiEndpoint = `${TMDB_API_URL}/tv/${tmdbId}`
   const apiToken = `Bearer ${TMDB_API_READ_ACCESS_TOKEN}`
 
@@ -24,5 +24,7 @@ export async function getTvSeriesDetails(
     release_date: tvSeriesDetails.release_date,
     title: tvSeriesDetails.title || tvSeriesDetails.name,
     media_type: tvSeriesDetails.media_type,
+    number_of_seasons: tvSeriesDetails.number_of_seasons,
+    number_of_episodes: tvSeriesDetails.number_of_episodes,
   }
 }
