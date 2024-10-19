@@ -1,12 +1,20 @@
 jest.mock('../../services/api/getWatchedItems')
 jest.mock('../../services/getTvSeriesDetails')
 jest.mock('../../services/getMovieDetails')
+jest.mock('../../utils/buildWatchItem')
 import {
   getWatchedItemsWithDetails,
   getWatchedItems,
   getTvSeriesDetails,
   getMovieDetails,
 } from '@/app/services'
+import {
+  tmdbMovieFixture,
+  tmdbTvSeriesFixture,
+  watchMovieFixture,
+  watchTvSeriesFixture,
+} from '../../../../fixtures'
+import {buildWatchItem} from '@/app/utils'
 
 describe('getWatchedItemsWithDetails', () => {
   it('calls getWatchedItems service', async () => {
@@ -181,14 +189,6 @@ describe('getWatchedItemsWithDetails', () => {
   })
 
   describe('when has watched tv series', () => {
-    const mockTvSeriesItem = {
-      id: 0,
-      poster_path: 'string',
-      release_date: 'string',
-      title: 'string',
-      media_type: 'tv',
-    }
-
     beforeEach(() => {
       ;(getWatchedItems as jest.Mock).mockReturnValue({
         data: [
@@ -200,24 +200,31 @@ describe('getWatchedItemsWithDetails', () => {
           },
         ],
       })
-      ;(getTvSeriesDetails as jest.Mock).mockReturnValue(mockTvSeriesItem)
+      ;(getTvSeriesDetails as jest.Mock).mockReturnValue(tmdbTvSeriesFixture)
+      ;(buildWatchItem as jest.Mock).mockReturnValue(watchTvSeriesFixture)
     })
 
     it('returns watched tv series', async () => {
       const response = await getWatchedItemsWithDetails()
-      expect(response).toHaveProperty('watchedTvSeries', [mockTvSeriesItem])
+      expect(response).toHaveProperty('watchedTvSeries', [watchTvSeriesFixture])
+    })
+  })
+
+  describe('when has not watched tv series', () => {
+    beforeEach(() => {
+      ;(getWatchedItems as jest.Mock).mockReturnValue({
+        data: [],
+      })
+      ;(getMovieDetails as jest.Mock).mockReturnValue([])
+    })
+
+    it('returns empty array', async () => {
+      const response = await getWatchedItemsWithDetails()
+      expect(response).toHaveProperty('watchedTvSeries', [])
     })
   })
 
   describe('when has watched movies', () => {
-    const mockMovieItem = {
-      id: 0,
-      poster_path: 'string',
-      release_date: 'string',
-      title: 'string',
-      media_type: 'movie',
-    }
-
     beforeEach(() => {
       ;(getWatchedItems as jest.Mock).mockReturnValue({
         data: [
@@ -229,12 +236,27 @@ describe('getWatchedItemsWithDetails', () => {
           },
         ],
       })
-      ;(getMovieDetails as jest.Mock).mockReturnValue(mockMovieItem)
+      ;(getMovieDetails as jest.Mock).mockReturnValue(tmdbMovieFixture)
+      ;(buildWatchItem as jest.Mock).mockReturnValue(watchMovieFixture)
     })
 
     it('returns watched movies', async () => {
       const response = await getWatchedItemsWithDetails()
-      expect(response).toHaveProperty('watchedMovies', [mockMovieItem])
+      expect(response).toHaveProperty('watchedMovies', [watchMovieFixture])
+    })
+  })
+
+  describe('when has not watched movies', () => {
+    beforeEach(() => {
+      ;(getWatchedItems as jest.Mock).mockReturnValue({
+        data: [],
+      })
+      ;(getMovieDetails as jest.Mock).mockReturnValue([])
+    })
+
+    it('returns empty array', async () => {
+      const response = await getWatchedItemsWithDetails()
+      expect(response).toHaveProperty('watchedMovies', [])
     })
   })
 })
