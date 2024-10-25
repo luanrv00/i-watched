@@ -34,14 +34,15 @@ services:
     ports:
       - 80:3000
       - 6006:6006
-    command: yarn dev
     depends_on:
       - db
       - db-migration
     volumes:
       - ..:/app
+      - /app/node_modules
     networks:
       - default
+    command: yarn dev
 volumes:
   db:
 networks:
