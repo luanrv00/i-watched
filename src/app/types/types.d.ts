@@ -8,8 +8,8 @@ export type TMDBItemType = {
 }
 
 export type TMDBTvSeriesType = TMDBItemType & {
-  number_of_seasons: number
-  number_of_episodes: number
+  number_of_seasons?: number
+  number_of_episodes?: number
 }
 
 export type WatchItemType = {

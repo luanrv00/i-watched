@@ -4,11 +4,11 @@ import {useState} from 'react'
 import {SearchForm} from '../SearchForm'
 import {SearchMatches} from '../SearchMatches'
 import {search} from '@/app/services'
-import type {WatchItemFullType} from '@/app/types/types'
+import type {WatchItemType} from '@/app/types/types'
 
 export function SearchContainer() {
   const [searchMatches, setSearchMatches] = useState<
-    null | WatchItemFullType[]
+    null | WatchItemType[]
   >(null)
 
   async function onSearch(searchTerm: string) {

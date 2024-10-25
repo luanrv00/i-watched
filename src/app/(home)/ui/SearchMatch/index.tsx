@@ -3,9 +3,9 @@ import {useState} from 'react'
 import Image from 'next/image'
 import {Button} from '@/app/ui'
 import {postWatchedItem} from '@/app/services'
-import type {WatchItemFullType} from '@/app/types/types'
+import type {WatchItemType} from '@/app/types/types'
 
-export function SearchMatch({matchItem}: {matchItem: WatchItemFullType}) {
+export function SearchMatch({matchItem}: {matchItem: WatchItemType}) {
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   async function onAdd() {
