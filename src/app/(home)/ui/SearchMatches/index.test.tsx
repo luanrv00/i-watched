@@ -1,11 +1,11 @@
 import {render, screen} from '@testing-library/react'
 import {SearchMatches} from '.'
 import {watchItemFixture} from '../../../../../fixtures'
-import type {WatchItemFullType} from '@/app/types/types'
+import type {WatchItemType} from '@/app/types/types'
 
 describe(SearchMatches, () => {
   describe('when has matches', () => {
-    const matchesList: WatchItemFullType[] = [watchItemFixture]
+    const matchesList: WatchItemType[] = [watchItemFixture]
 
     beforeEach(() => {
       render(<SearchMatches matchesList={matchesList} />)
