@@ -3,17 +3,18 @@ import { watchTvSeriesFixture } from '../../../../../fixtures'
 import {WatchedTvSeries} from '.'
 
 describe('WatchedTvSeries', () => {
+  it('renders section title', () => {
+    render(<WatchedTvSeries watchedItems={[watchTvSeriesFixture]} />)
+    expect(screen.getByRole('heading', {level: 2})).toHaveTextContent(/Watched TV Series/i)
+  })
+
   describe('when has watched tv series', () => {
     beforeEach(() => {
       render(<WatchedTvSeries watchedItems={[watchTvSeriesFixture]} />)
     })
 
-    it('renders section title', () => {
-      expect(screen.getByRole('heading', {level: 2})).toHaveTextContent(/Watched TV Series/i)
-    })
-
     it('renders all watched tv series', () => {
-      expect(within(screen.getByRole('list')).getAllByTestId('watched-tvseries')).toHaveLength(1)
+      expect(within(screen.getByRole('list')).getAllByRole('listitem')).toHaveLength(1)
     })
   })
 

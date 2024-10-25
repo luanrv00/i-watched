@@ -3,17 +3,18 @@ import { watchMovieFixture } from '../../../../../fixtures'
 import {WatchedMovies} from '.'
 
 describe('WatchedMovies', () => {
+  it('renders section title', () => {
+    render(<WatchedMovies watchedItems={[watchMovieFixture]} />)
+    expect(screen.getByRole('heading', {level: 2})).toHaveTextContent(/Watched Movies/i)
+  })
+
   describe('when has watched movies', () => {
     beforeEach(() => {
       render(<WatchedMovies watchedItems={[watchMovieFixture]} />)
     })
 
-    it('renders section title', () => {
-      expect(screen.getByRole('heading', {level: 2})).toHaveTextContent(/Watched Movies/i)
-    })
-
     it('renders all watched movies', () => {
-      expect(within(screen.getByRole('list')).getAllByTestId('watched-movies')).toHaveLength(1)
+      expect(within(screen.getByRole('list')).getAllByRole('listitem')).toHaveLength(1)
     })
   })
 
@@ -27,4 +28,3 @@ describe('WatchedMovies', () => {
     })
   })
 })
-
