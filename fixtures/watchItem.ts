@@ -25,4 +25,6 @@ export const watchTvSeriesFixture: WatchItemType = {
   releaseYear: '2016',
   title: 'title',
   mediaType: 'tv',
+  seasonsCount: 2,
+  episodesCount: 3
 }
