@@ -7,11 +7,24 @@ export async function POST(request: NextRequest): Promise<void | Response> {
   const knex = Knex(config)
 
   try {
-    await knex('watched_items').insert({
-      user_id: 0,
+    const itemExists = await knex('watched_items').select('*').where({
       tmdb_id: tmdbId,
-      media_type: mediaType,
     })
+
+    if (!itemExists.length) {
+      try {
+        await knex('watched_items').insert({
+          user_id: 0,
+          tmdb_id: tmdbId,
+          media_type: mediaType,
+        })
+        return Response.json({ok: true})
+      } catch (e) {
+        console.log('------------------e', e)
+        return Response.json({ok: false})
+      }
+    }
+
     return Response.json({ok: true})
   } catch (e) {
     console.log('------------------e', e)
