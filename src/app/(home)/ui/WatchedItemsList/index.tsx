@@ -10,9 +10,9 @@ export function WatchedItemsList({watchedItems}: {watchedItems: WatchItemType[]}
   return (
     <>
       <Spacer/>
-      <ul>
+        <ul className='flex flex-col gap-3 md:flex-row md:flex-wrap'>
         {watchedItems.map((watchedItem: WatchItemType) => (
-          <li key={watchedItem.tmdbId}>
+          <li key={watchedItem.tmdbId} className='w-60'>
             <WatchItemInfo watchItem={watchedItem}/>
           </li>
         ))}
