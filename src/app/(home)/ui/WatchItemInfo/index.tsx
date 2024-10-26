@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import type {WatchItemType} from '@app/types/types'
+import type {WatchItemType} from '@/app/types/types'
 
 export function WatchItemInfo({watchItem}: {watchItem: WatchItemType}) {
   if(!watchItem) {
@@ -7,7 +7,7 @@ export function WatchItemInfo({watchItem}: {watchItem: WatchItemType}) {
   }
 
   return (
-    <div>
+    <div className='flex w-full'>
       <Image src={watchItem.posterUrl} width='100' height='150' alt='cover' />
       <div className='ml-2 w-full flex flex-col'>
         <p>{watchItem.title}</p>

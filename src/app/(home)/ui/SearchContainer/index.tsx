@@ -5,6 +5,7 @@ import {SearchForm} from '../SearchForm'
 import {SearchMatches} from '../SearchMatches'
 import {search} from '@/app/services'
 import type {WatchItemType} from '@/app/types/types'
+import { Spacer } from '@/app/ui'
 
 export function SearchContainer() {
   const [searchMatches, setSearchMatches] = useState<
@@ -19,6 +20,7 @@ export function SearchContainer() {
   return (
     <>
       <SearchForm onSearch={onSearch} />
+      <Spacer/>
       <SearchMatches matchesList={searchMatches} />
     </>
   )

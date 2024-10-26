@@ -13,7 +13,7 @@ export function SearchMatches({
   }
 
   return (
-    <ul className='mt-5 flex flex-col gap-3 md:flex-row md:flex-wrap'>
+    <ul className='flex flex-col gap-3 md:flex-row md:flex-wrap'>
       {matchesList?.map((matchItem: WatchItemType) => (
         <SearchMatch key={matchItem.tmdbId} matchItem={matchItem} />
       ))}

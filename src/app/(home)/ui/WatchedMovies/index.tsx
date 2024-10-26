@@ -1,12 +1,13 @@
 import type { WatchItemType } from "@/app/types/types";
+import { TextParagraph, TextSubtitle } from "@/app/ui";
 import { WatchedItemsList } from "..";
 
 export function WatchedMovies({watchedItems}: {watchedItems: WatchItemType[]}) {
   return (
     <>
-      <h2>Watched Movies</h2>
+      <TextSubtitle>Watched Movies</TextSubtitle>
       <WatchedItemsList watchedItems={watchedItems}/>
-      {!watchedItems.length && <p>Add watched Movies</p>}
+      {!watchedItems.length && <TextParagraph>Add watched Movies</TextParagraph>}
     </>
   )
 }

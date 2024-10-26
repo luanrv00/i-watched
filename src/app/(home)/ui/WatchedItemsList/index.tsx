@@ -1,3 +1,4 @@
+import { Spacer } from '@/app/ui'
 import { WatchItemInfo } from '..'
 import type {WatchItemType} from '@/app/types/types'
 
@@ -7,12 +8,15 @@ export function WatchedItemsList({watchedItems}: {watchedItems: WatchItemType[]}
   }
 
   return (
-    <ul>
-      {watchedItems.map((watchedItem: WatchItemType) => (
-        <li key={watchedItem.tmdbId}>
-          <WatchItemInfo watchItem={watchedItem}/>
-        </li>
-      ))}
-    </ul>
+    <>
+      <Spacer/>
+      <ul>
+        {watchedItems.map((watchedItem: WatchItemType) => (
+          <li key={watchedItem.tmdbId}>
+            <WatchItemInfo watchItem={watchedItem}/>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }

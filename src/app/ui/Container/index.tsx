@@ -1,5 +1,12 @@
 import type {ReactNode} from 'react'
+import { Spacer } from '../Spacer'
 
 export function Container({children}: {children: ReactNode}) {
-  return <div className='container px-5'>{children}</div>
+  return (
+    <>
+      <Spacer/>
+      <div className='container px-5'>{children}</div>
+      <Spacer/>
+    </>
+  )
 }
