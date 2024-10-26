@@ -6,6 +6,10 @@
 
 ### Development
 
+#### TMDB API Read Access Token
+
+Copy the `env.sample` as `.env` and fill the `TMDB_API_READ_ACCESS_TOKEN` with your token from https://www.themoviedb.org/settings/api
+
 #### Running development server
 
 ```sh
