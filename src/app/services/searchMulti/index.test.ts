@@ -1,6 +1,9 @@
+jest.mock('../api/getWatchedItems')
 import {TMDB_API_URL} from '../../constants'
+import { getWatchedItems } from '../api'
 import {searchMulti} from '.'
 import type {TMDBItemType} from '@/app/types/types'
+import { tmdbMovieFixture } from '../../../../fixtures'
 
 const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
 
@@ -15,14 +18,8 @@ describe('searchMulti', () => {
         json: () =>
           Promise.resolve({
             results: [
-              {
-                id: 0,
-                poster_path: 'string',
-                release_date: '2000',
-                title: 'title',
-                name: 'name',
-                media_type: 'tv',
-              },
+              tmdbMovieFixture,
+              {...tmdbMovieFixture, id: 10}
             ],
           }),
       })
@@ -59,5 +56,26 @@ describe('searchMulti', () => {
 
   it('returns media_type', () => {
     expect(response[0]['media_type']).not.toBeNull()
+  })
+
+  describe('when has watched items', () => {
+    beforeEach(() => {
+      ;(getWatchedItems as jest.Mock).mockReturnValue({
+        data: [{
+          id: 0,
+          user_id: 0,
+          tmdb_id: 10,
+          media_type: 'movie',
+        }]
+      })
+    })
+
+    it('calls api/getWatchedItems', () => {
+      expect(getWatchedItems).toHaveBeenCalled()
+    })
+
+    it('remove watched items from the search list', () => {
+      expect(response.length).toEqual(1)
+    })
   })
 })

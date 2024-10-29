@@ -1,5 +1,6 @@
 import {TMDB_API_URL} from '../../constants'
-import type {TMDBItemType} from '@/app/types/types'
+import type {TMDBItemType, WatchedItemDBType} from '@/app/types/types'
+import { getWatchedItems } from '../api'
 
 const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
 
@@ -20,7 +21,22 @@ export async function searchMulti(searchTerm: string): Promise<TMDBItemType[]> {
     )
     .catch(err => console.log('---------------- err', err))
 
-  const data = searchMatches.map((matchItem: TMDBItemType) => ({
+  const watchedItems: {data: WatchedItemDBType[]} = await getWatchedItems()
+  let filteredSearchMatches: TMDBItemType[] = []
+
+  if (!watchedItems?.data?.length) {
+    filteredSearchMatches = searchMatches
+  } else {
+    searchMatches.forEach((matchItem: TMDBItemType) => {
+      watchedItems.data.forEach(watchedItem => {
+        if (matchItem.id !== watchedItem.tmdb_id) {
+          filteredSearchMatches.push(matchItem)
+        }
+      });
+    })
+  }
+
+  const data = filteredSearchMatches.map((matchItem: TMDBItemType) => ({
     id: matchItem.id,
     poster_path: matchItem.poster_path,
     release_date: matchItem.release_date,
