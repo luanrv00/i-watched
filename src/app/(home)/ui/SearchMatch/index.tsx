@@ -5,7 +5,13 @@ import {postWatchedItem} from '@/app/services'
 import type {WatchItemType} from '@/app/types/types'
 import {WatchItemInfo} from '../WatchItemInfo'
 
-export function SearchMatch({matchItem}: {matchItem: WatchItemType}) {
+export function SearchMatch({
+  matchItem,
+  handleAdd,
+}: {
+  matchItem: WatchItemType
+  handleAdd: (tmddbId: number) => void
+}) {
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   async function onAdd() {
@@ -14,6 +20,7 @@ export function SearchMatch({matchItem}: {matchItem: WatchItemType}) {
       tmdbId: matchItem.tmdbId,
       mediaType: matchItem.mediaType,
     })
+    handleAdd(matchItem.tmdbId)
     setIsLoading(false)
   }
 

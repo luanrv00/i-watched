@@ -8,9 +8,9 @@ import {Spacer} from '@/app/ui'
 import type {WatchItemType} from '@/app/types/types'
 
 export function SearchContainer() {
-  const [searchMatches, setSearchMatches] = useState<null | WatchItemType[]>(
-    null,
-  )
+  const [searchMatches, setSearchMatches] = useState<
+    undefined | WatchItemType[]
+  >()
 
   async function onSearch(searchTerm: string) {
     const searchMatches = await search(searchTerm)

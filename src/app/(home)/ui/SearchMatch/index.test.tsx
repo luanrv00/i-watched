@@ -6,7 +6,7 @@ import {SearchMatch} from '.'
 
 describe(SearchMatch, () => {
   beforeEach(() => {
-    render(<SearchMatch matchItem={watchItemFixture} />)
+    render(<SearchMatch matchItem={watchItemFixture} handleAdd={() => {}} />)
   })
 
   it('renders button to add watched item', () => {
@@ -16,7 +16,7 @@ describe(SearchMatch, () => {
   describe('when clicking on add button', () => {
     beforeEach(() => {
       global.fetch = jest.fn()
-      render(<SearchMatch matchItem={watchItemFixture} />)
+      render(<SearchMatch matchItem={watchItemFixture} handleAdd={() => {}} />)
     })
 
     it('calls postWatchedItem service', async () => {
