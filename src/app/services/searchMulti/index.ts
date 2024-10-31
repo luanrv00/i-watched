@@ -15,8 +15,8 @@ export async function searchMulti(searchTerm: string): Promise<TMDBItemType[]> {
     .then(res => res.json())
     .then(res =>
       res.results.filter(
-        (matchItem: TMDBItemType) => matchItem['media_type'] !== 'person'
-      )
+        (matchItem: TMDBItemType) => matchItem['media_type'] !== 'person',
+      ),
     )
     .catch(err => console.log('---------------- err', err))
 

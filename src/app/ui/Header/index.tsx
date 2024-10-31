@@ -1,4 +1,4 @@
-import { TextParagraph } from "..";
+import {TextParagraph} from '..'
 
 export function Header() {
   return (

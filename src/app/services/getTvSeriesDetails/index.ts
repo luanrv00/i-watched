@@ -5,7 +5,7 @@ import type {TMDBTvSeriesType} from '@/app/types/types'
 const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
 
 export async function getTvSeriesDetails(
-  tmdbId: number
+  tmdbId: number,
 ): Promise<TMDBTvSeriesType> {
   const apiEndpoint = `${TMDB_API_URL}/tv/${tmdbId}`
   const apiToken = `Bearer ${TMDB_API_READ_ACCESS_TOKEN}`

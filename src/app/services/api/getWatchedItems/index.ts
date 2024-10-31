@@ -6,6 +6,6 @@ export async function getWatchedItems(): Promise<{
   const watchedItems = await fetch('/api/shows/watched_items')
     .then(res => res.json())
     .catch(e => console.log('------------------e', e))
-    
+
   return watchedItems
 }

@@ -1,13 +1,9 @@
-import type { ReactNode } from "react";
+import type {ReactNode} from 'react'
 
 export function TextParagraph({children}: {children: ReactNode}) {
-  return (
-    <p className="font-thin text-sm">{children}</p>
-  )
+  return <p className='font-thin text-sm'>{children}</p>
 }
 
 export function TextSubtitle({children}: {children: ReactNode}) {
-  return (
-    <h2 className="font-bold">{children}</h2>
-  )
+  return <h2 className='font-bold'>{children}</h2>
 }

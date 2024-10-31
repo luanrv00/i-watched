@@ -1,7 +1,7 @@
 import {TMDB_API_URL} from '../../constants'
 import {searchMulti} from '.'
 import type {TMDBItemType} from '@/app/types/types'
-import { tmdbMovieFixture } from '../../../../fixtures'
+import {tmdbMovieFixture} from '../../../../fixtures'
 
 const TMDB_API_READ_ACCESS_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN
 
@@ -15,12 +15,9 @@ describe('searchMulti', () => {
       Promise.resolve({
         json: () =>
           Promise.resolve({
-            results: [
-              tmdbMovieFixture,
-              {...tmdbMovieFixture, id: 10}
-            ],
+            results: [tmdbMovieFixture, {...tmdbMovieFixture, id: 10}],
           }),
-      })
+      }),
     ) as jest.Mock
 
     response = await searchMulti(searchTerm)

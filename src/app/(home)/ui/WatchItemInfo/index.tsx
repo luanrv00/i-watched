@@ -2,7 +2,7 @@ import Image from 'next/image'
 import type {WatchItemType} from '@/app/types/types'
 
 export function WatchItemInfo({watchItem}: {watchItem: WatchItemType}) {
-  if(!watchItem) {
+  if (!watchItem) {
     return null
   }
 

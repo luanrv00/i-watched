@@ -4,7 +4,7 @@ import {TextSubtitle} from '.'
 const meta: Meta<typeof TextSubtitle> = {
   component: TextSubtitle,
   tags: ['autodocs'],
-  title: 'text/TextSubtitle'
+  title: 'text/TextSubtitle',
 }
 export default meta
 

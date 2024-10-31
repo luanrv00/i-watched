@@ -11,7 +11,7 @@ describe(SearchForm, () => {
   it('renders input label', async () => {
     render(<SearchForm onSearch={() => {}} />)
     expect(
-      screen.getByLabelText(/Search for an Anime, TV Series or Movie/i)
+      screen.getByLabelText(/Search for an Anime, TV Series or Movie/i),
     ).toBeInTheDocument()
   })
 

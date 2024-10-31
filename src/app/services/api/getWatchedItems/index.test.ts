@@ -9,7 +9,7 @@ describe('getWatchedItems', () => {
           Promise.resolve({
             data: [],
           }),
-      })
+      }),
     ) as jest.Mock
   })
 
@@ -35,7 +35,7 @@ describe('getWatchedItems', () => {
             Promise.resolve({
               data: watchedItems,
             }),
-        })
+        }),
       ) as jest.Mock
     })
 
@@ -58,7 +58,7 @@ describe('getWatchedItems', () => {
       const responseItem = response && response.data[0]
       expect(responseItem).toHaveProperty(
         'media_type',
-        watchedItems[0].media_type
+        watchedItems[0].media_type,
       )
     })
   })
@@ -71,7 +71,7 @@ describe('getWatchedItems', () => {
             Promise.resolve({
               data: [],
             }),
-        })
+        }),
       ) as jest.Mock
     })
 

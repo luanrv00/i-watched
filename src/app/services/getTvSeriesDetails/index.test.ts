@@ -30,7 +30,7 @@ describe('getTvSeriesDetails', () => {
               },
             ],
           }),
-      })
+      }),
     ) as jest.Mock
 
     response = await getTvSeriesDetails(tmdbId)

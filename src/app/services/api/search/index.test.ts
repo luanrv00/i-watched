@@ -1,6 +1,6 @@
 jest.mock('../../api/getWatchedItems')
 import {search} from '.'
-import { getWatchedItems } from '../../api'
+import {getWatchedItems} from '../../api'
 import {watchItemFixture} from '../../../../../fixtures'
 
 describe(search, () => {
@@ -11,7 +11,7 @@ describe(search, () => {
           Promise.resolve({
             data: [watchItemFixture],
           }),
-      })
+      }),
     ) as jest.Mock
   })
 
@@ -36,16 +36,17 @@ describe(search, () => {
             Promise.resolve({
               data: [watchItemFixture, {...watchItemFixture, tmdbId: 10}],
             }),
-        })
+        }),
       ) as jest.Mock
-
       ;(getWatchedItems as jest.Mock).mockReturnValue({
-        data: [{
-          id: 0,
-          user_id: 0,
-          tmdb_id: 10,
-          media_type: 'movie',
-        }]
+        data: [
+          {
+            id: 0,
+            user_id: 0,
+            tmdb_id: 10,
+            media_type: 'movie',
+          },
+        ],
       })
 
       response = await search('matrix')

@@ -1,10 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import { watchItemFixture, watchTvSeriesFixture } from '../../../../../fixtures'
+import {render, screen} from '@testing-library/react'
+import {watchItemFixture, watchTvSeriesFixture} from '../../../../../fixtures'
 import {WatchItemInfo} from '.'
 
 describe('WatchItemInfo', () => {
   beforeEach(() => {
-    render(<WatchItemInfo watchItem={watchItemFixture}/>)
+    render(<WatchItemInfo watchItem={watchItemFixture} />)
   })
 
   it('renders match poster', () => {

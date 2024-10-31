@@ -1,17 +1,19 @@
 'use client'
 import {useEffect, useState} from 'react'
 import {getWatchedItemsWithDetails} from '@/app/services'
-import type { WatchItemType } from '@/app/types/types'
-import { WatchedTvSeries, WatchedMovies } from '..'
-import { Spacer } from '@/app/ui'
+import type {WatchItemType} from '@/app/types/types'
+import {WatchedTvSeries, WatchedMovies} from '..'
+import {Spacer} from '@/app/ui'
 
 export type WatchedItemsType = {
-  watchedMovies: WatchItemType[], 
+  watchedMovies: WatchItemType[]
   watchedTvSeries: WatchItemType[]
 }
 
 export function WatchedItems() {
-  const [watchedItems, setWatchedItems] = useState<null|WatchedItemsType>(null)
+  const [watchedItems, setWatchedItems] = useState<null | WatchedItemsType>(
+    null,
+  )
 
   useEffect(() => {
     fetchWatchedItems()
@@ -22,14 +24,14 @@ export function WatchedItems() {
     setWatchedItems(watchedItems)
   }
 
-  if(!watchedItems) {
+  if (!watchedItems) {
     return null
   }
 
   return (
     <>
-      <WatchedTvSeries watchedItems={watchedItems.watchedTvSeries}/>
-      <Spacer/>
+      <WatchedTvSeries watchedItems={watchedItems.watchedTvSeries} />
+      <Spacer />
       <WatchedMovies watchedItems={watchedItems.watchedMovies} />
     </>
   )

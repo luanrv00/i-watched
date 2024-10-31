@@ -4,7 +4,7 @@ import {TextParagraph} from '.'
 const meta: Meta<typeof TextParagraph> = {
   component: TextParagraph,
   tags: ['autodocs'],
-  title: 'text/TextParagraph'
+  title: 'text/TextParagraph',
 }
 export default meta
 

@@ -6,10 +6,10 @@ export default function Home() {
   return (
     <Container>
       <Header />
-      <SpacerLarge/>
+      <SpacerLarge />
       <main>
         <SearchContainer />
-        <SpacerLarge/>
+        <SpacerLarge />
         <WatchedItems />
       </main>
     </Container>
