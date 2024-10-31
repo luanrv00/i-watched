@@ -4,8 +4,8 @@ import {useState} from 'react'
 import {SearchForm} from '../SearchForm'
 import {SearchMatches} from '../SearchMatches'
 import {search} from '@/app/services'
-import type {WatchItemType} from '@/app/types/types'
 import { Spacer } from '@/app/ui'
+import type {WatchItemType} from '@/app/types/types'
 
 export function SearchContainer() {
   const [searchMatches, setSearchMatches] = useState<
