@@ -1,4 +1,0 @@
-FROM mcr.microsoft.com/playwright:v1.47.0-jammy
-COPY . /app
-WORKDIR /app
-RUN yarn install --frozen-lockfile

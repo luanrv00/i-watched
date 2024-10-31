@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-docker rm -fv ivewatched-e2e
-docker rmi -f ivewatched-e2e
