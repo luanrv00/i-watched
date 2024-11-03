@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 if [ -z "$(docker images -q ivewatched-app 2> /dev/null)" ];then
-  docker build -t ivewatched-app -f docker/Dockerfile.dev .
+  docker build --no-cache -t ivewatched-app -f docker/Dockerfile.dev .
 fi
