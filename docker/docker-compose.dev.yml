@@ -42,7 +42,6 @@ services:
       - /app/node_modules
     networks:
       - default
-    command: yarn dev
 volumes:
   db:
 networks:
