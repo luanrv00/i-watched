@@ -13,7 +13,6 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
   db-migration:
-    #image: ivewatched-app
     build:
       context: ..
       dockerfile: docker/Dockerfile.dev
@@ -24,7 +23,6 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pass
   app:
-    #image: ivewatched-app
     build:
       context: ..
       dockerfile: docker/Dockerfile.dev
