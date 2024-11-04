@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
-docker rm -f ivewatched-app
+docker rm -f -v ivewatched-app
 docker rmi -f ivewatched-app
 docker rm -f ivewatched-app-db
 docker rm -f ivewatched-app-db-migration
+docker rmi -f ivewatched-db-migration
 docker volume rm ivewatched_db
+docker network rm ivewatched_default
