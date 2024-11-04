@@ -3,7 +3,8 @@ import type {WatchedItemDBType} from '@/app/types/types'
 export async function getWatchedItems(): Promise<{
   data: WatchedItemDBType[]
 }> {
-  const watchedItems = await fetch('/api/shows/watched_items')
+  const baseURL = process.env.NEXT_PUBLIC_APP_BASE_URL
+  const watchedItems = await fetch(`${baseURL}/api/shows/watched_items`)
     .then(res => res.json())
     .catch(e => console.log('------------------e', e))
 
