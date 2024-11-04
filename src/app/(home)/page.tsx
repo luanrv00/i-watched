@@ -1,6 +1,8 @@
-'use client'
-import {Container, Section, Header, Spacer, SpacerLarge} from '../ui'
-import {SearchContainer, WatchedItems} from './ui'
+import {Container} from '@/app/ui/Container'
+import {Header} from '@/app/ui/Header'
+import {SpacerLarge} from '@/app/ui/Spacer'
+import {SearchContainer} from './ui/SearchContainer'
+import {WatchedItems} from './ui/WatchedItems'
 
 export default function Home() {
   return (

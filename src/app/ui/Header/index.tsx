@@ -1,4 +1,4 @@
-import {TextParagraph} from '..'
+import {TextParagraph} from '@/app/ui/Text'
 
 export function Header() {
   return (

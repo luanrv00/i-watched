@@ -1,5 +1,5 @@
 import type {ReactNode} from 'react'
-import {Spacer} from '../Spacer'
+import {Spacer} from '@/app/ui/Spacer'
 
 export function Container({children}: {children: ReactNode}) {
   return (

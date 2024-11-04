@@ -1,5 +1,5 @@
 import {ReactNode} from 'react'
-import {LoadingIcon} from '../LoadingIcon'
+import {LoadingIcon} from '@/app/ui/LoadingIcon'
 
 export function Button({
   children,
