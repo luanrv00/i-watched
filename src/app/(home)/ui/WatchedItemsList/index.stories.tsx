@@ -1,6 +1,6 @@
-import type {StoryObj, Meta} from '@storybook/react'
+import {watchItemFixture, watchTvSeriesFixture} from '@/fixtures'
 import {WatchedItemsList} from '.'
-import {watchItemFixture, watchTvSeriesFixture} from '../../../../../fixtures'
+import type {StoryObj, Meta} from '@storybook/react'
 
 const meta: Meta<typeof WatchedItemsList> = {
   component: WatchedItemsList,

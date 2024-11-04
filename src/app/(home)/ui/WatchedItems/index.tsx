@@ -1,9 +1,10 @@
 'use client'
 import {useEffect, useState} from 'react'
 import {getWatchedItemsWithDetails} from '@/app/services'
+import {Spacer} from '@/app/ui/Spacer'
+import {WatchedTvSeries} from '../WatchedTvSeries'
+import {WatchedMovies} from '../WatchedMovies'
 import type {WatchItemType} from '@/app/types/types'
-import {WatchedTvSeries, WatchedMovies} from '..'
-import {Spacer} from '@/app/ui'
 
 export type WatchedItemsType = {
   watchedMovies: WatchItemType[]

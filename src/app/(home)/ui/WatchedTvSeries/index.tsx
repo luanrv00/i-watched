@@ -1,6 +1,6 @@
+import {TextParagraph, TextSubtitle} from '@/app/ui/Text'
+import {WatchedItemsList} from '../WatchedItemsList'
 import type {WatchItemType} from '@/app/types/types'
-import {TextParagraph, TextSubtitle} from '@/app/ui'
-import {WatchedItemsList} from '..'
 
 export function WatchedTvSeries({
   watchedItems,

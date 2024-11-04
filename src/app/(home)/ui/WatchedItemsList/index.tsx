@@ -1,5 +1,5 @@
-import {Spacer} from '@/app/ui'
-import {WatchItemInfo} from '..'
+import {Spacer} from '@/app/ui/Spacer'
+import {WatchItemInfo} from '../WatchItemInfo'
 import type {WatchItemType} from '@/app/types/types'
 
 export function WatchedItemsList({

@@ -1,7 +1,7 @@
 'use client'
 import {useEffect, useState} from 'react'
-import type {WatchItemType} from '@/app/types/types'
 import {SearchMatch} from '../SearchMatch'
+import type {WatchItemType} from '@/app/types/types'
 
 export function SearchMatches({
   matchesList,

@@ -1,9 +1,9 @@
 'use client'
 import {useState} from 'react'
-import {Button} from '@/app/ui'
 import {postWatchedItem} from '@/app/services'
-import type {WatchItemType} from '@/app/types/types'
+import {Button} from '@/app/ui/Button'
 import {WatchItemInfo} from '../WatchItemInfo'
+import type {WatchItemType} from '@/app/types/types'
 
 export function SearchMatch({
   matchItem,

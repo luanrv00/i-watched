@@ -1,7 +1,7 @@
 'use client'
 import {useEffect, useState} from 'react'
 import {useDebounce} from 'use-debounce'
-import {Input} from '@/app/ui'
+import {Input} from '@/app/ui/Input'
 
 export function SearchForm({onSearch}: {onSearch: (param: string) => void}) {
   const [inputValue, setInputValue] = useState<string>('')

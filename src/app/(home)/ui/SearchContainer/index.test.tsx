@@ -1,6 +1,6 @@
 import {act, fireEvent, render, screen} from '@testing-library/react'
-import {SearchContainer} from '.'
 import {search} from '@/app/services'
+import {SearchContainer} from '.'
 
 describe(SearchContainer, () => {
   describe('when calling onSearch', () => {

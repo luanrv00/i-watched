@@ -1,7 +1,7 @@
 jest.mock('../../../services/api/postWatchedItem')
 import {act, fireEvent, render, screen} from '@testing-library/react'
-import {watchItemFixture} from '../../../../../fixtures'
 import {postWatchedItem} from '@/app/services'
+import {watchItemFixture} from '@/fixtures'
 import {SearchMatch} from '.'
 
 describe(SearchMatch, () => {

@@ -1,6 +1,6 @@
-import type {StoryObj, Meta} from '@storybook/react'
 import {TMDB_POSTERS_URL} from '@/app/constants'
 import {SearchMatches} from '.'
+import type {StoryObj, Meta} from '@storybook/react'
 
 const meta: Meta<typeof SearchMatches> = {
   component: SearchMatches,
