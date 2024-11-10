@@ -1,7 +1,7 @@
 jest.mock('../../api/getWatchedItems')
 import {search} from '.'
 import {getWatchedItems} from '../../api'
-import {watchItemFixture} from '../../../../../fixtures'
+import {watchItemFixture} from '@/fixtures'
 
 describe(search, () => {
   beforeEach(async () => {

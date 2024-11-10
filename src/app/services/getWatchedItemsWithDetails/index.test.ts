@@ -13,7 +13,7 @@ import {
   tmdbTvSeriesFixture,
   watchMovieFixture,
   watchTvSeriesFixture,
-} from '../../../../fixtures'
+} from '@/fixtures'
 import {buildWatchItem} from '@/app/utils'
 
 describe('getWatchedItemsWithDetails', () => {
