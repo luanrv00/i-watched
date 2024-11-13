@@ -1,5 +1,5 @@
 import {postWatchedItem} from '.'
-import {watchItemFixture} from '@/fixtures'
+import {watchItemFixture} from '../../../../../fixtures'
 
 describe('postWatchedItem', () => {
   beforeEach(() => {

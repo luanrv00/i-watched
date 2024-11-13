@@ -1,5 +1,5 @@
 import {render, screen, within} from '@testing-library/react'
-import {watchMovieFixture} from '@/fixtures'
+import {watchMovieFixture} from '../../../../../fixtures'
 import {WatchedMovies} from '.'
 
 describe('WatchedMovies', () => {

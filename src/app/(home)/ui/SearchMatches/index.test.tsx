@@ -1,5 +1,5 @@
 import {act, fireEvent, render, screen} from '@testing-library/react'
-import {watchItemFixture} from '@/fixtures'
+import {watchItemFixture} from '../../../../../fixtures'
 import {SearchMatches} from '.'
 import type {WatchItemType} from '@/app/types/types'
 
