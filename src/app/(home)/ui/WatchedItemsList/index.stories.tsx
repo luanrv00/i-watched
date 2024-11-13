@@ -1,4 +1,4 @@
-import {watchItemFixture, watchTvSeriesFixture} from '@/fixtures'
+import {watchItemFixture, watchTvSeriesFixture} from '../../../../../fixtures'
 import {WatchedItemsList} from '.'
 import type {StoryObj, Meta} from '@storybook/react'
 

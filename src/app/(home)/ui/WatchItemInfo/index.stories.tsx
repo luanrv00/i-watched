@@ -1,4 +1,4 @@
-import {watchItemFixture} from '@/fixtures'
+import {watchItemFixture} from '../../../../../fixtures'
 import {WatchItemInfo} from '.'
 import type {StoryObj, Meta} from '@storybook/react'
 
