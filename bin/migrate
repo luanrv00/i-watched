@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+if [ -z "$(d images -q ivewatched-app 2> /dev/null)" ];then
+  bin/dev
+fi
+docker exec ivewatched-app bin/migrate
