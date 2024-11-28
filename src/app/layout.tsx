@@ -1,22 +1,13 @@
-import type {Metadata} from 'next'
-import {Inder} from 'next/font/google'
-import './globals.css'
-
-const inder = Inder({subsets: ['latin'], weight: '400'})
-
-export const metadata: Metadata = {
-  title: "I've Watched App",
-  description: 'Track your Animes, TV Series and Movies progress!',
-}
+import {SessionProvider} from 'next-auth/react'
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+  Component,
+  pageProps: {session, ...pageProps},
+}) {
+  console.log('------------ _app.tsx file is working!!!!')
   return (
-    <html lang='en'>
-      <body className={inder.className}>{children}</body>
-    </html>
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
   )
 }
